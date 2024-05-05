@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pharmacy_patient_tree" model="ir.ui.view">
+        <field name="name">pharmacy.patient.tree</field>
+        <field name="model">pharmacy.patient</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="ref"/>
+                <field name="age"/>
+                <field name="gender"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_pharmacy_patient_form" model="ir.ui.view">
+        <field name="name">pharmacy.patient.form</field>
+        <field name="model">pharmacy.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="ref"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="allergies"/>
+                            <field name="contact_info"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                    <field name="activity_ids" />
+                </div>
+
+
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pharmacy_patient_search" model="ir.ui.view">
+        <field name="name">pharmacy.patient.search</field>
+        <field name="model">pharmacy.patient</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="['|', ('name','ilike',self), ('ref','ilike',self)]"/>
+                <field name="ref"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <filter name="filter_male" string="Male" domain="[('gender','=','male')]"/>
+                <filter name="filter_female" string="Female" domain="[('gender','=','female')]"/>
+                <separator/>
+                <filter name="filter_kids" string="Kids" domain="[('age','&lt;=','10')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_gender" string="Gender" domain="[]" context="{'group_by':'gender'}"/>
+                </group>
+                <searchpanel>
+                        <field name="gender" string="Gender" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_pharmacy_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pharmacy.patient</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your frist patient !
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_patient"
+              name="Patient"
+              parent="menu_patient_master"
+              action="action_pharmacy_patient"
+              sequence="0"
+    />
+</odoo>

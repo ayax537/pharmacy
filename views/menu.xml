@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_pharmacy_root"
+              name="Pharmacy"
+              sequence="0"
+    />
+    <menuitem id="menu_patient_master"
+              name="Patient details"
+              parent="menu_pharmacy_root"
+              sequence="0"
+    />
+
+    <menuitem id="menu_patient"
+              name="Patient"
+              parent="menu_patient_master"
+              sequence="0"
+    />
+</odoo>
