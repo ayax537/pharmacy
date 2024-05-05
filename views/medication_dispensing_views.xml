@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+        <!-- Define the form view -->
+        <record id="view_medication_dispensing_form" model="ir.ui.view">
+            <field name="name">medication.dispensing.form</field>
+            <field name="model">pharmacy_management.medication.dispensing</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="patient_id"/>
+                                <field name="dispensing_date"/>
+                                <field name="dispensed_medication"/>
+                            </group>
+                            <group>
+                                <field name="quantity"/>
+                                <field name="pharmacy"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="message_ids"/>
+                        <field name="activity_ids"/>
+                    </div>
+
+
+                </form>
+            </field>
+        </record>
+
+        <!-- Define the tree view -->
+        <record id="view_medication_dispensing_tree" model="ir.ui.view">
+            <field name="name">medication.dispensing.tree</field>
+            <field name="model">pharmacy_management.medication.dispensing</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="patient_id"/>
+                    <field name="dispensing_date"/>
+                    <field name="dispensed_medication"/>
+                    <field name="quantity"/>
+                    <field name="pharmacy"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Define the action -->
+        <record id="action_medication_dispensing" model="ir.actions.act_window">
+            <field name="name">Medication Dispensing</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pharmacy_management.medication.dispensing</field>
+            <field name="context">{}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your frist patient !
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_medication"
+                  name="Medication Dispensing Details"
+                  action="action_medication_dispensing"
+                  parent="menu_medication_master"
+                  sequence="0"
+        />
+    </data>
+</odoo>

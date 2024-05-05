@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access.pharmacy.patient,access_pharmacy_patient,pharmacy.model_pharmacy_patient,base.group_user,1,0,1,1
+access.pharmacy.patient,access_pharmacy_patient,pharmacy.model_pharmacy_patient,base.group_user,1,1,1,1
+access_pharmacy.medication_dispensing,Access_Pharmacy_Medication_Dispensing,model_pharmacy_management_medication_dispensing,base.group_user,1,1,1,1

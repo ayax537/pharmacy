@@ -4,15 +4,27 @@
               name="Pharmacy"
               sequence="0"
     />
+
     <menuitem id="menu_patient_master"
               name="Patient details"
               parent="menu_pharmacy_root"
               sequence="0"
     />
-
     <menuitem id="menu_patient"
               name="Patient"
               parent="menu_patient_master"
               sequence="0"
     />
+    <menuitem id="menu_medication_master"
+              name="Medication Dispensing"
+              parent="menu_pharmacy_root"
+              sequence="0"
+    />
+    <menuitem id="menu_medication"
+              name="Medication Dispensing Details"
+              parent="menu_medication_master"
+              sequence="0"
+    />
+
+
 </odoo>

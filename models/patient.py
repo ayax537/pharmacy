@@ -8,7 +8,6 @@ class PharmacyPatient(models.Model):
     _description = "Pharmacy Patient"
 
     name = fields.Char(string='Name',tracking=True)
-    name = fields.Char(string='Name',tracking=True)
     ref= fields.Char(string='Reference',tracking=True)
     age = fields.Char(string='Age')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string='Gender')
